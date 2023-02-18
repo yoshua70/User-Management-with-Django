@@ -111,3 +111,25 @@ body {
 .navbar-li a, .navbar-p a {
   text-decoration: none;
 }
+
+.dashboard-topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.dashboard-topbar-btn-group {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.dashboard-topbar-btn {
+  padding: 0.5rem 1rem;
+}
+
+.dashboard-topbar-btn a {
+  text-decoration: none;
+}
