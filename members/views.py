@@ -18,6 +18,8 @@ def login_user(request):
             messages.success(request, ("Echec de l'authentification."))
             return redirect('login')
     else:
+        if request.user.is_authenticated:
+            return redirect('dashboard')
         return render(request, 'authenticate/login.html', {})
 
 
