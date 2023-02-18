@@ -23,5 +23,13 @@ def login_user(request):
         return render(request, 'authenticate/login.html', {})
 
 
+def logout_user(request):
+    logout(request)
+
+    return redirect('login')
+
+
 def dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     return render(request, 'members/index.html', {})
