@@ -1,5 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <main class="main--centered">
+  {% if messages %} {% for message in messages %}
+  <div class="message" x-data="{'showModal': true}" x-show="showModal">
+    <p>{{message}}</p>
+    <button @click="showModal = false">Fermer</button>
+  </div>
+  {% endfor %} {% endif %}
+
   <form action="" method="POST" class="form">
     {% csrf_token %}
     <div class="form-div">
@@ -12,11 +19,6 @@
     </div>
     <div class="form-div">
       <button type="submit" class="form-button">Connexion</button>
-    </div>
-    <div class="form-div">
-      {% if messages %} {% for message in messages %}
-      <p class="p--error">{{message}}</p>
-      {% endfor %} {% endif %}
     </div>
   </form>
 </main>

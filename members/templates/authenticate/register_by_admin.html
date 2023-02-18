@@ -1,0 +1,17 @@
+{% extends 'base_with_navbar.html' %} {% block content %}
+<main class="main--centered">
+  <form action="{% url 'register_by_admin' %}" method="POST" class="form">
+    {% csrf_token %}
+    <h1>Register</h1>
+    {{form.as_p}}
+    <div class="form-div">
+      <button type="submit" class="form-button">Inscription</button>
+    </div>
+    <div class="form-div">
+      {% if messages %} {% for message in messages %}
+      <p class="p--error">{{message}}</p>
+      {% endfor %} {% endif %}
+    </div>
+  </form>
+</main>
+{% endblock content %}

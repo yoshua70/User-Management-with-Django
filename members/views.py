@@ -1,6 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+
+
+def register_user_by_admin(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Utilisateur ajouté avec succès !")
+
+            return redirect('dashboard')
+    else:
+        form = UserCreationForm()
+    return render(request, 'authenticate/register_by_admin.html', {'form': form})
 
 
 def login_user(request):

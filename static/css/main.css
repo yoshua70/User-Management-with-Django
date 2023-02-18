@@ -133,3 +133,29 @@ body {
 .dashboard-topbar-btn a {
   text-decoration: none;
 }
+
+.message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1rem 2rem;
+  padding: 1rem 1rem;
+
+  background-color: #8ecae6;
+  color: #f1faee;
+  font-weight: bold;
+
+  border-radius: 0.4rem;
+}
+
+.message button {
+  padding: 0.5rem 1rem;
+  border: none;
+
+  border-radius: 0.4rem;
+}
+.message button:hover {
+  cursor: pointer;
+}

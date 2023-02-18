@@ -4,9 +4,15 @@
     <p>Gestion des utilisateurs</p>
     <div class="dashboard-topbar-btn-group">
       <button class="dashboard-topbar-btn">
-        <a href="#">Nouvel Utilisateur +</a>
+        <a href="{% url 'register_by_admin' %}">Nouvel Utilisateur +</a>
       </button>
     </div>
   </div>
+  {% if messages %} {% for message in messages %}
+  <div class="message" x-data="{'showModal': true}" x-show="showModal">
+    <p>{{message}}</p>
+    <button @click="showModal = false">Fermer</button>
+  </div>
+  {% endfor %} {% endif %}
 </main>
 {% endblock content %}
