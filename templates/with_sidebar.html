@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE >
+<html>
+  <head>
+    <title>User Management</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <div class="div--with-sidebar">
+      <div class="sidebar">
+        <ul class="ul-sidebar-links">
+          <li class="li-sidebar-link"><a href="#">Accueil</a></li>
+          <li><a href="#">Utilisateurs</a></li>
+          <li><a href="#">Déconnexion</a></li>
+        </ul>
+      </div>
+      <main>{% block content %}{% endblock content %}</main>
+    </div>
+  </body>
+</html>
