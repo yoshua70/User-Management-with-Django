@@ -29,6 +29,6 @@ $ python3 -m pip install Django
 
 Verify the version of Django you've just installed:
 ```shell
-$ python -m django --version
+$ python3 -m django --version
 ```
 
