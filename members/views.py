@@ -22,4 +22,4 @@ def login_user(request):
 
 
 def dashboard(request):
-    return render(request, 'dashboard/index.html', {})
+    return render(request, 'members/index.html', {})
