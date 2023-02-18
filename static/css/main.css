@@ -53,3 +53,7 @@ body {
   cursor: pointer;
   translate: 0 -0.2rem;
 }
+
+.p--error {
+  color: #e63946;
+}

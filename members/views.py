@@ -15,7 +15,7 @@ def login_user(request):
             # Redirect to a success page.
             return redirect('dashboard')
         else:
-            messages.error(request, ("Authentication failed."))
+            messages.success(request, ("Echec de l'authentification."))
             return redirect('login')
     else:
         return render(request, 'authenticate/login.html', {})
