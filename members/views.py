@@ -4,9 +4,22 @@ from django.contrib import messages
 
 
 def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
 
-    return render(request, 'authenticate/login.html', {})
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return redirect('dashboard')
+        else:
+            messages.error(request, ("Authentication failed."))
+            return redirect('login')
+    else:
+        return render(request, 'authenticate/login.html', {})
 
 
 def dashboard(request):
-    return render(request, 'dashboard/index.html')
+    return render(request, 'dashboard/index.html', {})
