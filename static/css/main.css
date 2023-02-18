@@ -93,3 +93,21 @@ body {
 .p--error {
   color: #e63946;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 1rem 2rem;
+}
+
+.navbar-ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.navbar-li a, .navbar-p a {
+  text-decoration: none;
+}
