@@ -9,8 +9,7 @@ class DataBase(models.Model):
 
 
 class Account(models.Model):
-    email = models.CharField(max_length=100)
-    db = models.ForeignKey(DataBase, on_delete=models.SET_NULL, null=True)
+    db = models.CharField(max_length=50, null=True)
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, primary_key=True
     )
