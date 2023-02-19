@@ -2,18 +2,24 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterUserForm
+from .models import Account
+from django.contrib.auth.models import User
 
 
 def register_user_by_admin(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = RegisterUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            account = Account(
+                user=user, db=form.cleaned_data["database_revue"])
+            account.save()
             messages.success(request, "Utilisateur ajouté avec succès !")
 
             return redirect('dashboard')
     else:
-        form = UserCreationForm()
+        form = RegisterUserForm()
     return render(request, 'authenticate/register_by_admin.html', {'form': form})
 
 
@@ -46,4 +52,14 @@ def logout_user(request):
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('login')
-    return render(request, 'members/index.html', {})
+
+    users = User.objects.filter(is_superuser=0)
+
+    return render(request, 'members/index.html', {"users": users})
+
+
+def delete_user(request, id):
+
+    User.objects.get(username=id).delete()
+    messages.success(request, ("Utilisateur supprimé."))
+    return redirect('dashboard')

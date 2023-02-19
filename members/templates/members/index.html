@@ -14,5 +14,31 @@
     <button @click="showModal = false">Fermer</button>
   </div>
   {% endfor %} {% endif %}
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr class="thead-tr">
+          <td>Nom d'utilisateur</td>
+          <td>Nom</td>
+          <td>Prénoms</td>
+          <td>Courriel</td>
+          <td>Base de revues</td>
+          <td>Actions</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{user.username}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.account.db}}</td>
+          <td><a href="{% url 'delete_user' user.username %}">Supprimer</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </main>
 {% endblock content %}

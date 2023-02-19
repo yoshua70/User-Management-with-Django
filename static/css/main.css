@@ -159,3 +159,34 @@ body {
 .message button:hover {
   cursor: pointer;
 }
+
+.table-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+table {
+  width: 100%;
+
+  color: #f1faee;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+th, td {
+  padding: 1rem;
+}
+
+table tr:nth-child(odd) td{
+  background-color: #FD8A8A;
+}
+table tr:nth-child(even) td{
+  background-color: #A8D1D1;
+}
+
+.thead-tr {
+  background-color: #A8D1D1;
+}
