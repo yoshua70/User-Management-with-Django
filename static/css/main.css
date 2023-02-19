@@ -74,6 +74,18 @@ body {
   background-color: #f2f2f2;
 }
 
+.form-input--full {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 0.2rem;
+  background-color: #f2f2f2;
+
+  width: 100%;
+
+  display: block;
+  margin: 1rem 0;
+}
+
 .form-button {
   background-color: #219ebc;
   color: #f1faee;
@@ -189,4 +201,8 @@ table tr:nth-child(even) td{
 
 .thead-tr {
   background-color: #A8D1D1;
+}
+
+span.helptext {
+  list-style: circle;
 }
